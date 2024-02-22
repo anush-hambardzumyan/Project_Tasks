@@ -55,7 +55,7 @@ struct SortingOption
 
 int* splitString(const std::string& input, char delimiter, int& size) 
 {
-    std::vector<int> parts; // Using vector to dynamically manage size
+    std::vector<int> parts; 
     std::istringstream stream(input);
     std::string part;
     while (std::getline(stream, part, delimiter)) 
