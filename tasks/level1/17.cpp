@@ -49,6 +49,11 @@ class Rectangle : public Shape
             {
                 throw std::invalid_argument("Invalid argument: ");
             }
+            else
+            {
+                a = a1;
+                b = b1;
+            }
         }
         
         double area()
@@ -62,14 +67,23 @@ void print(Shape* ptr)
 {
     std::cout << ptr -> area();
 }
-
-int main()
+  
+int main() 
 {
-    Shape* ptr = new Circle(4);
-    print(ptr);
-    std::cout << std::endl;
-    delete ptr;
-    ptr = new Rectangle(3,9);
-    print(ptr);
-    std::cout << std::endl;
-}   
+    try {
+        Circle circle(5);
+        Rectangle rectangle(2,10);
+
+        Shape* shape1 = &circle;
+        Shape* shape2 = &rectangle;
+
+        std::cout << "Area of Circle: " << shape1->area() << std::endl;
+        std::cout << "Area of Rectangle: " << shape2->area() << std::endl;
+    } catch (const std::invalid_argument& e) 
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+   
