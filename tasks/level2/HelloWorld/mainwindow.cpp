@@ -7,11 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    helloLabel = new QLabel("Hello, World!", this);
+    helloLabel = new QLabel("Hello, World!",this);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete helloLabel;
 }
 

@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -11,6 +10,7 @@ class CounterApp : public QWidget {
     Q_OBJECT
 public:
     CounterApp(QWidget *parent = nullptr);
+    ~CounterApp();
 
 private slots:
     void Counter();
