@@ -8,8 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     helloLabel = new QLabel("Hello, World!", this);
-
-    helloLabel->setGeometry(100, 100, 200, 50);
 }
 
 MainWindow::~MainWindow()
