@@ -12,7 +12,7 @@ CounterApp::CounterApp(QWidget *parent) : QWidget(parent) , counter(0)
     connect(button, &QPushButton::clicked, this, &CounterApp::Counter);
     layout->addWidget(button);
 
-    //setLayout(layout);
+    setLayout(layout);
 }
 
 void CounterApp::Counter()

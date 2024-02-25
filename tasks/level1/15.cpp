@@ -16,6 +16,18 @@ public:
     void sort(std::vector<int>& arr) override 
     {
         std::cout << "Sorted by Bubble Sort: " << std::endl; 
+        for (int i = 0; i < arr.size() - 1; ++i) 
+        {
+            for (int j = 0; j < arr.size() - i - 1; ++j) 
+            {
+                if (arr[j] > arr[j + 1]) 
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }  
     }
 };
 
@@ -25,6 +37,24 @@ public:
     void sort(std::vector<int>& arr) override 
     {
         std::cout << "Sorted by Selection Sort: " << std::endl;
+        for (int i = 0; i < arr.size() - 1; ++i) 
+        {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.size(); ++j) 
+            {
+                if (arr[j] < arr[minIndex]) 
+                {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i) 
+            {
+                int temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+        }  
     }
 };
 
