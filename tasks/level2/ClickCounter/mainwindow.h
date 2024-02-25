@@ -1,21 +1,25 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+#include <QWidget>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QLabel>
 
-class MainWindow : public QMainWindow
-{
+class CounterApp : public QWidget {
     Q_OBJECT
-
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    CounterApp(QWidget *parent = nullptr);
+
+private slots:
+    void Counter();
 
 private:
-    Ui::MainWindow *ui;
+    int counter;
+    QLabel *counter_label;
+    QPushButton *button;
 };
+
 #endif // MAINWINDOW_H
+

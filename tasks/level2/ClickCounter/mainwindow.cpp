@@ -1,15 +1,24 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+
+CounterApp::CounterApp(QWidget *parent) : QWidget(parent) , counter(0)
 {
-    ui->setupUi(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    counter_label = new QLabel("Counter: 0", this);
+    layout->addWidget(counter_label);
+
+    button = new QPushButton("Click me", this);
+    connect(button, &QPushButton::clicked, this, &CounterApp::Counter);
+    layout->addWidget(button);
+
+    setLayout(layout);
 }
 
-MainWindow::~MainWindow()
+void CounterApp::Counter()
 {
-    delete ui;
+    counter++;
+    std::string cnt = std::to_string(counter);
+    QString str{cnt.c_str()};
+    counter_label->setText("Counter: " + str);
 }
-
